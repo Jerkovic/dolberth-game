@@ -31,6 +31,9 @@ public class EventManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Init this instance.
+    /// </summary>
     void Init()
     {
         if (eventDictionary == null)
@@ -39,6 +42,11 @@ public class EventManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Starts new listener.
+    /// </summary>
+    /// <param name="eventName">Event name.</param>
+    /// <param name="listener">Listener.</param>
     public static void StartListening(string eventName, Action<IEventParam> listener)
     {
         Action<IEventParam> thisEvent;
@@ -54,23 +62,33 @@ public class EventManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Stops a listener.
+    /// </summary>
+    /// <param name="eventName">Event name.</param>
+    /// <param name="listener">Listener.</param>
     public static void StopListening(string eventName, Action<IEventParam> listener)
     {
         if (eventManager == null) return;
         Action<IEventParam> thisEvent;
-        if (instance.eventDictionary.TryGetValue(eventName, out thisEvent))
+        if ((listener != null) && instance.eventDictionary.TryGetValue(eventName, out thisEvent))
         {
             thisEvent -= listener;
             instance.eventDictionary[eventName] = thisEvent;
         }
     }
 
+    /// <summary>
+    /// Triggers an event.
+    /// </summary>
+    /// <param name="eventName">Event name.</param>
+    /// <param name="eventParam">Event parameter.</param>
     public static void TriggerEvent(string eventName, IEventParam eventParam)
     {
         Action<IEventParam> thisEvent = null;
         if (instance.eventDictionary.TryGetValue(eventName, out thisEvent))
         {
-            thisEvent.Invoke(eventParam);            
+            thisEvent.Invoke(eventParam);
         }
     }
 }

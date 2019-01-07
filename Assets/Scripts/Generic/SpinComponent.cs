@@ -12,7 +12,7 @@ namespace Dolberth.Generic
         /// </summary>
         private void Start()
         {
-            transform.Rotate(Vector3.forward, Random.Range(1,360));
+            transform.Rotate(Vector3.forward, Random.Range(1, 360));
         }
         /// <summary>
         /// Update this instance.

@@ -2,15 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Dolberth.Player.Models 
+namespace Dolberth.Player.Models
 {
-	public class PlayerData  {
+    public class PlayerData
+    {
 
-		public float Speed { set; get; }
-		public int Coins { set; get; }
+        public float Speed { set; get; }
+        public int Coins { set; get; }
 
-		public void AddCoin() {
-			Coins += 1;
-		}
-	}
+        public void AddCoin()
+        {
+            Coins += 1;
+        }
+    }
 }

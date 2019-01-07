@@ -8,7 +8,7 @@ namespace Dolberth.Player
     {
 
         private Rigidbody _rigidBody;
-    
+
         public GameManager _gameManager;
 
         [Inject]
@@ -26,7 +26,7 @@ namespace Dolberth.Player
 
             _rigidBody = GetComponent<Rigidbody>();
         }
-       
+
         /// <summary>
         /// FixedUpdate.
         /// </summary>
