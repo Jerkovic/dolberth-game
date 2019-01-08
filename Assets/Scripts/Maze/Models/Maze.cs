@@ -34,7 +34,7 @@ namespace Dolberth.Maze.Models
         /// Gets all cells in maze.
         /// </summary>
         /// <returns>The cells.</returns>
-        public ArrayList getCells()
+        public ArrayList GetCells()
         {
 
             return cells;
@@ -49,7 +49,7 @@ namespace Dolberth.Maze.Models
         public void ChangeCellType(int x, int y, CellType cellType)
         {
 
-            getCellAt(x, y).cellType = cellType;
+            GetCellAt(x, y).cellType = cellType;
         }
 
         /// <summary>
@@ -73,7 +73,7 @@ namespace Dolberth.Maze.Models
         public bool PickUpCoin(int x, int y)
         {
 
-            if (getCellAt(x, y).cellType.Equals(CellType.COIN))
+            if (GetCellAt(x, y).cellType.Equals(CellType.COIN))
             {
                 ChangeCellType(x, y, CellType.HALL);
                 return true;
@@ -95,14 +95,14 @@ namespace Dolberth.Maze.Models
                 }
             }
 
-            Cell startingCell = getCellAt(0, 0);
+            Cell startingCell = GetCellAt(0, 0);
             walls.Add(startingCell);
             int max = 300;
 
             while (true)
             {
                 Cell wall = (Cell)walls[Random.Range(0, walls.Count)];
-                processWall(wall);
+                ProcessWall(wall);
 
                 if (walls.Count <= 0)
                     break;
@@ -112,7 +112,7 @@ namespace Dolberth.Maze.Models
 
             }
 
-            getCellAt(0, 0).cellType = CellType.START;
+            GetCellAt(0, 0).cellType = CellType.START;
 
             Cell randomFreeCell = FindRandomEmptyCell();
             randomFreeCell.cellType = CellType.GOAL;
@@ -145,7 +145,7 @@ namespace Dolberth.Maze.Models
 
                 int x = Random.Range(-Radius, Radius);
                 int z = Random.Range(-Radius, Radius);
-                Cell cell = getCellAt(x, z);
+                Cell cell = GetCellAt(x, z);
 
                 if (cell.cellType == CellType.HALL)
                 {
@@ -158,7 +158,7 @@ namespace Dolberth.Maze.Models
         /// Processes the wall.
         /// </summary>
         /// <param name="cell">Cell.</param>
-        private void processWall(Cell cell)
+        private void ProcessWall(Cell cell)
         {
             int x = cell.x;
             int z = cell.z;
@@ -179,14 +179,14 @@ namespace Dolberth.Maze.Models
                 z += (cell.z - cell.from.z);
             }
 
-            Cell next = getCellAt(x, z);
+            Cell next = GetCellAt(x, z);
             if (next == null || next.cellType != CellType.WALL)
                 return;
 
             cell.cellType = CellType.HALL;
             next.cellType = CellType.HALL;
 
-            foreach (Cell process in getWallsAroundCell(next))
+            foreach (Cell process in GetWallsAroundCell(next))
             {
                 process.from = next;
                 walls.Add(process);
@@ -201,7 +201,7 @@ namespace Dolberth.Maze.Models
         /// <returns>The <see cref="Cell"/>.</returns>
         /// <param name="x">The x coordinate.</param>
         /// <param name="z">The z coordinate.</param>
-        private Cell getCellAt(int x, int z)
+        private Cell GetCellAt(int x, int z)
         {
             foreach (Cell cell in cells)
             {
@@ -216,16 +216,16 @@ namespace Dolberth.Maze.Models
         /// </summary>
         /// <returns>The walls around cell.</returns>
         /// <param name="cell">Cell.</param>
-        private ArrayList getWallsAroundCell(Cell cell)
+        private ArrayList GetWallsAroundCell(Cell cell)
         {
 
             ArrayList near = new ArrayList();
             ArrayList check = new ArrayList();
 
-            check.Add(getCellAt(cell.x + 1, cell.z));
-            check.Add(getCellAt(cell.x - 1, cell.z));
-            check.Add(getCellAt(cell.x, cell.z + 1));
-            check.Add(getCellAt(cell.x, cell.z - 1));
+            check.Add(GetCellAt(cell.x + 1, cell.z));
+            check.Add(GetCellAt(cell.x - 1, cell.z));
+            check.Add(GetCellAt(cell.x, cell.z + 1));
+            check.Add(GetCellAt(cell.x, cell.z - 1));
 
             foreach (Cell checking in check)
             {

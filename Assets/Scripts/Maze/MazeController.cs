@@ -38,7 +38,7 @@ namespace Dolberth.Maze
         /// </summary>
         private void _generateMazeMeshes()
         {
-            foreach (Cell cell in maze.getCells())
+            foreach (Cell cell in maze.GetCells())
             {
                 if (cell.cellType == CellType.WALL)
                 {
