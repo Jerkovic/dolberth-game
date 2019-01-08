@@ -56,10 +56,10 @@ namespace Dolberth.Enemy
         }
 
         /// <summary>
-        /// Collision trigger enter. Move this
+        /// Collision trigger enter.
         /// </summary>
         /// <param name="coll">Coll.</param>
-	    private void OnTriggerEnter(Collider coll)
+        private void OnTriggerEnter(Collider coll)
         {
 
             if (coll.gameObject.CompareTag("Coin"))
