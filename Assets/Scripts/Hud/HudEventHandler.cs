@@ -58,6 +58,8 @@ namespace Dolberth.Hud
         /// <param name="eventParam">Event parameter.</param>
         void OnPickupCoin(IEventParam eventParam)
         {
+
+            SoundManager.instance.PlaySoundByName("speaker_blip");
             EventPlayerPickUpCoin eventPickup = (EventPlayerPickUpCoin)eventParam;
 
             Vector3 screenPos = UnityEngine.Camera.main.WorldToScreenPoint(eventPickup.position);

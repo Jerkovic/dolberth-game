@@ -43,6 +43,7 @@ public class SoundManager : MonoBehaviour
         UnityEngine.Object[] sounds = Resources.LoadAll("sounds", typeof(AudioClip)).Cast<AudioClip>().ToArray(); ;
         foreach (AudioClip t in sounds)
         {
+            Debug.Log("Auto-loading sound " + t.name);
             clipMap.Add(t.name, t);
         }
     }

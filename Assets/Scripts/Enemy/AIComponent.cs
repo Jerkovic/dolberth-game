@@ -24,14 +24,24 @@ namespace Dolberth.Enemy
         private void Awake()
         {
             _agent = transform.GetComponent<NavMeshAgent>();
-            SetNewRandomAgentDestination();
+
+        }
+
+        /// <summary>
+        /// Start this instance.
+        /// </summary>
+        private void Start()
+        {
+
+            _setNewRandomAgentDestination();
         }
 
         /// <summary>
         /// Sets a new random agent destination.
         /// </summary>
-        private void SetNewRandomAgentDestination()
+        private void _setNewRandomAgentDestination()
         {
+
             Cell destinationCell = _gameManager.GetMaze().FindRandomEmptyCell();
             _agent.SetDestination(new Vector3(destinationCell.x, .5f, destinationCell.z));
         }
@@ -41,6 +51,7 @@ namespace Dolberth.Enemy
         /// </summary>
 		private void Update()
         {
+
             _hasAgentReachedDestination();
         }
 
@@ -70,7 +81,7 @@ namespace Dolberth.Enemy
             float distanceToTarget = Vector3.Distance(transform.position, _agent.destination);
             if (distanceToTarget < .5f)
             {
-                SetNewRandomAgentDestination();
+                _setNewRandomAgentDestination();
             }
         }
     }
