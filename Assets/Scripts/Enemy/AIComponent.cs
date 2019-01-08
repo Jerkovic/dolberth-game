@@ -49,7 +49,7 @@ namespace Dolberth.Enemy
         /// <summary>
         /// Update this instance.
         /// </summary>
-		private void Update()
+        private void Update()
         {
 
             _hasAgentReachedDestination();
@@ -59,8 +59,9 @@ namespace Dolberth.Enemy
         /// Collision trigger enter. Move this
         /// </summary>
         /// <param name="coll">Coll.</param>
-		private void OnTriggerEnter(Collider coll)
+	    private void OnTriggerEnter(Collider coll)
         {
+
             if (coll.gameObject.CompareTag("Coin"))
             {
                 int x = (int)coll.transform.position.x;
@@ -78,6 +79,7 @@ namespace Dolberth.Enemy
         /// </summary>
         private void _hasAgentReachedDestination()
         {
+
             float distanceToTarget = Vector3.Distance(transform.position, _agent.destination);
             if (distanceToTarget < .5f)
             {
