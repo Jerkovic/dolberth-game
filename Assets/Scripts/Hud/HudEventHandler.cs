@@ -89,6 +89,7 @@ namespace Dolberth.Hud
             hudWindow.transform.localScale = Vector3.zero;
             hudWindow.SetActive(true);
 
+            SoundManager.instance.PlaySoundByName("level_complete");
             Sequence mySequence = DOTween.Sequence();
             mySequence.Append(hudWindow.transform.DOScale(1f, 1.5f).SetEase(Ease.OutExpo));
             mySequence.AppendInterval(10);

@@ -12,6 +12,8 @@ namespace Dolberth.Maze
         public GameObject coinPrefab;
         public GameObject enemyPrefab;
         public GameObject wallPrefab;
+        public GameObject goalPrefab;
+
         public NavMeshSurface navMeshSurface;
 
         private Models.Maze maze;
@@ -49,15 +51,12 @@ namespace Dolberth.Maze
                 }
                 else if (cell.cellType == CellType.GOAL)
                 {
-                    GameObject goal = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                    goal.transform.tag = "Goal";
-                    goal.transform.GetComponent<BoxCollider>().isTrigger = true;
-                    goal.transform.position = new Vector3((float)cell.x, (float).5, (float)cell.z);
+                    Instantiate(goalPrefab, new Vector3((float)cell.x, (float).5, (float)cell.z), Quaternion.identity);
                 }
                 else if (cell.cellType == CellType.ENEMYSPAWN)
                 {
                     // The prefab must have the Zen auto Injecter component
-                    Instantiate(enemyPrefab, new Vector3((float)cell.x, (float).5, (float)cell.z), enemyPrefab.transform.rotation);
+                    Instantiate(enemyPrefab, new Vector3((float)cell.x, (float).5, (float)cell.z), Quaternion.identity);
                 }
             }
 

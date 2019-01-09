@@ -1063,6 +1063,8 @@ MonoBehaviour:
   enemyPrefab: {fileID: 1695184283211634, guid: 07708f5f9a7fb42f1a3532d6b837ff11,
     type: 3}
   wallPrefab: {fileID: 1066101082903994, guid: 9f96bc3a113db4b66b9445575c4e75ca, type: 3}
+  goalPrefab: {fileID: 680013044142320328, guid: 788b8d5afe2424c4a90d935abad63f3d,
+    type: 3}
   navMeshSurface: {fileID: 1228034010}
 --- !u!1 &1638441755
 GameObject:
