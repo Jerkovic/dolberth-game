@@ -14,7 +14,7 @@ namespace Dolberth.Camera
         /// <summary>
         /// Late update.
         /// </summary>
-		void LateUpdate()
+        void LateUpdate()
         {
             if (!target) return;
 

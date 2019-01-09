@@ -3,10 +3,10 @@ using Dolberth.Player.Models;
 
 namespace Dolberth.Managers.GameManager
 {
-    public class GameManager
+    public class GameManager : IGameManager
     {
         private PlayerData playerData;
-        private Dolberth.Maze.Models.Maze maze;
+        private Maze.Models.Maze maze;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="T:Dolberth.Managers.GameManager.GameManager"/> class.
@@ -24,17 +24,19 @@ namespace Dolberth.Managers.GameManager
         {
             playerData = new PlayerData
             {
-                Speed = 5
+                Speed = 5,
+                Health = 100,
+                MaxHealth = 100
             };
 
-            maze = new Dolberth.Maze.Models.Maze(21, 17);
+            maze = new Maze.Models.Maze(21, 17);
         }
 
         /// <summary>
         /// Gets the maze.
         /// </summary>
         /// <returns>The maze.</returns>
-        public Dolberth.Maze.Models.Maze GetMaze()
+        public Maze.Models.Maze GetMaze()
         {
             return maze;
         }

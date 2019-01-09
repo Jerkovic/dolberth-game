@@ -9,10 +9,7 @@ namespace Dolberth.Player
     public class CollisionComponent : MonoBehaviour
     {
 
-        private Boolean isLevelCleared = false;
-        private Boolean isHurting = false;
-
-        public GameManager _gameManager;
+        private GameManager _gameManager;
 
         [Inject]
         private void Construct(GameManager gameManager)
@@ -27,11 +24,12 @@ namespace Dolberth.Player
         void OnTriggerStay(Collider coll)
         {
 
-            if (coll.gameObject.CompareTag("Goal") && coll.bounds.Contains(transform.position) && isLevelCleared == false)
+            if (coll.gameObject.CompareTag("Goal") && coll.bounds.Contains(transform.position))
             {
+
                 EventManager.TriggerEvent("Player.CompleteLevel", null);
                 transform.GetComponent<InputControllerComponent>().enabled = false;
-                isLevelCleared = true;
+                Destroy(coll.gameObject);
             }
         }
 
@@ -43,6 +41,7 @@ namespace Dolberth.Player
 
             if (coll.gameObject.CompareTag("Coin"))
             {
+
                 int x = (int)coll.transform.position.x;
                 int y = (int)coll.transform.position.z;
 
@@ -63,9 +62,16 @@ namespace Dolberth.Player
                 }
             }
 
-            if (coll.gameObject.CompareTag("Enemy") && isHurting == false)
+            if (coll.gameObject.CompareTag("Enemy"))
             {
-                EventManager.TriggerEvent("Player.Hurt", null);
+                _gameManager.GetPlayerData().TakeDamage(1f);
+                EventPlayerDamage damageEvent = new EventPlayerDamage()
+                {
+                    health = _gameManager.GetPlayerData().Health,
+                    maxHealth = _gameManager.GetPlayerData().MaxHealth
+                };
+
+                EventManager.TriggerEvent("Player.Hurt", damageEvent);
             }
         }
     }

@@ -10,11 +10,12 @@ namespace Dolberth.Enemy
     {
 
         private NavMeshAgent _agent;
-        private GameManager _gameManager;
+        public GameManager _gameManager;
 
         [Inject]
         private void Construct(GameManager gameManager)
         {
+
             _gameManager = gameManager;
         }
 
@@ -23,8 +24,8 @@ namespace Dolberth.Enemy
         /// </summary>
         private void Awake()
         {
-            _agent = transform.GetComponent<NavMeshAgent>();
 
+            _agent = transform.GetComponent<NavMeshAgent>();
         }
 
         /// <summary>

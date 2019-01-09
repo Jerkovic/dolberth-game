@@ -9,12 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c68c59389e3144c2be8546efa408344, type: 3}
-  m_Name: ShootLazerAbility
+  m_Script: {fileID: 11500000, guid: a3619754e68294438b0e9bd21fe508e8, type: 3}
+  m_Name: PlayerStats
   m_EditorClassIdentifier: 
-  abilityName: Lazer
-  baseCoolDown: 5
-  gunDamage: 1
-  weaponRange: 50
-  hitForce: 100
-  laserColor: {r: 1, g: 1, b: 1, a: 1}
+  health: 79.21616
+  maxHealth: 100

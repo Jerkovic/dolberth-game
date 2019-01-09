@@ -16,7 +16,7 @@ public class ShootAbility : Ability
 
     public override void TriggerAbility()
     {
-        //rcShoot.Fire();
+        //Fire()
     }
 
 

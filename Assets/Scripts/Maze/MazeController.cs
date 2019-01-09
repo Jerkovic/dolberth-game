@@ -15,8 +15,7 @@ namespace Dolberth.Maze
         public NavMeshSurface navMeshSurface;
 
         private Models.Maze maze;
-
-        public GameManager _gameManager;
+        private GameManager _gameManager;
 
         [Inject]
         private void Construct(GameManager gameManager)

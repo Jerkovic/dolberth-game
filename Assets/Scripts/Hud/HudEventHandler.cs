@@ -12,6 +12,7 @@ namespace Dolberth.Hud
         public Text coinText;
         public GameObject coinUiPrefab;
         public GameObject hudWindow;
+        public Image healthBar;
 
         private Animation _animation;
 
@@ -20,6 +21,7 @@ namespace Dolberth.Hud
         /// </summary>
         void OnEnable()
         {
+
             EventManager.StartListening("Player.PickupCoin", OnPickupCoin);
             EventManager.StartListening("Player.CompleteLevel", OnPlayerCompleteLevel);
             EventManager.StartListening("Player.Hurt", OnPlayerHurt);
@@ -30,6 +32,7 @@ namespace Dolberth.Hud
         /// </summary>
         void OnDisable()
         {
+
             EventManager.StopListening("Player.PickupCoin", OnPickupCoin);
             EventManager.StopListening("Player.CompleteLevel", OnPlayerCompleteLevel);
             EventManager.StopListening("Player.Hurt", OnPlayerHurt);
@@ -49,7 +52,8 @@ namespace Dolberth.Hud
         /// <param name="eventParam">Event parameter.</param>
         void OnPlayerHurt(IEventParam eventParam)
         {
-            Debug.Log("OnPlayerHurt invoked in HUD.");
+            EventPlayerDamage playerDamage = (EventPlayerDamage)eventParam;
+            healthBar.fillAmount = playerDamage.health / playerDamage.maxHealth;
         }
 
         /// <summary>
@@ -59,7 +63,7 @@ namespace Dolberth.Hud
         void OnPickupCoin(IEventParam eventParam)
         {
 
-            SoundManager.instance.PlaySoundByName("speaker_blip");
+            SoundManager.instance.PlaySoundByName("coin_pickup");
             EventPlayerPickUpCoin eventPickup = (EventPlayerPickUpCoin)eventParam;
 
             Vector3 screenPos = UnityEngine.Camera.main.WorldToScreenPoint(eventPickup.position);
