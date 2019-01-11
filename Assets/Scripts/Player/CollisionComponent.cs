@@ -67,8 +67,8 @@ namespace Dolberth.Player
                 _gameManager.GetPlayerData().TakeDamage(1f);
                 EventPlayerDamage damageEvent = new EventPlayerDamage()
                 {
-                    health = _gameManager.GetPlayerData().Health,
-                    maxHealth = _gameManager.GetPlayerData().MaxHealth
+                    health = 0,
+                    maxHealth = 0
                 };
 
                 EventManager.TriggerEvent("Player.Hurt", damageEvent);

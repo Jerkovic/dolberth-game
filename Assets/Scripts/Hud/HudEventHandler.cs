@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using Dolberth.Player.Events;
+using Zenject;
 
 namespace Dolberth.Hud
 {
@@ -15,6 +16,15 @@ namespace Dolberth.Hud
         public Image healthBar;
 
         private Animation _animation;
+
+
+        private APlayer.Settings _aPlayer;
+
+        [Inject]
+        private void Construct(APlayer.Settings aPlayer)
+        {
+            _aPlayer = aPlayer;
+        }
 
         /// <summary>
         /// On enable.

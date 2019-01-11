@@ -1,7 +1,5 @@
 ﻿using Dolberth.Managers.GameManager;
 using UnityEngine;
-using System;
-using System.Collections.Generic;
 using Zenject;
 
 
@@ -13,10 +11,12 @@ namespace Dolberth.Player
 
         private Rigidbody _rigidBody;
         private GameManager _gameManager;
+        private APlayer.Settings _aPlayer;
 
         [Inject]
-        private void Construct(GameManager gameManager)
+        private void Construct(GameManager gameManager, APlayer.Settings aPlayer)
         {
+            _aPlayer = aPlayer;
             _gameManager = gameManager;
         }
 
@@ -34,11 +34,12 @@ namespace Dolberth.Player
         /// </summary>
         void FixedUpdate()
         {
+
             float moveHorizontal = Input.GetAxis("Horizontal");
             float moveVertical = Input.GetAxis("Vertical");
 
             Vector3 movement = new Vector3(moveHorizontal, 0f, moveVertical);
-            _rigidBody.AddForce(movement * _gameManager.GetPlayerData().Speed);
+            _rigidBody.AddForce(movement * _aPlayer.Speed);
         }
     }
 }

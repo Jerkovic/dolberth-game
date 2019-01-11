@@ -4,13 +4,13 @@ using UnityEngine;
 
 namespace Dolberth.Player.Models
 {
-    public class PlayerData
+    public class PlayerData : ScriptableObject
     {
      
         public float Speed { set; get; }
         public int Coins { set; get; }
-        public float Health { set; get; }
-        public float MaxHealth { set; get; }
+        //public float Health { set; get; }
+        //public float MaxHealth { set; get; }
 
         /// <summary>
         /// Adds the coin.
@@ -26,7 +26,7 @@ namespace Dolberth.Player.Models
         /// <param name="damage">Damage.</param>
         public void TakeDamage(float damage)
         {
-            Health -= damage;
+            //Health -= damage;
         }
     }
 }

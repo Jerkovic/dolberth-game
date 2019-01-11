@@ -15,6 +15,7 @@ namespace Dolberth.Managers.GameManager
         {
             Debug.Log("init GameManager");
             InitGame();
+
         }
 
         /// <summary>
@@ -22,14 +23,11 @@ namespace Dolberth.Managers.GameManager
         /// </summary>
         void InitGame()
         {
-            playerData = new PlayerData
-            {
-                Speed = 5,
-                Health = 100,
-                MaxHealth = 100
-            };
-
-            maze = new Maze.Models.Maze(21, 17);
+           
+            playerData = ScriptableObject.CreateInstance<PlayerData>();
+            //playerData.MaxHealth = 100;
+            //playerData.Health = playerData.MaxHealth;
+            maze = new Maze.Models.Maze(diameter: 21, coins: 17);
         }
 
         /// <summary>

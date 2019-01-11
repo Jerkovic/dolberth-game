@@ -1,33 +1,31 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EventManager : MonoBehaviour
 {
 
-    private Dictionary<string, Action<IEventParam>> eventDictionary;
+    private Dictionary<string, Action<IEventParam>> _eventDictionary;
+    private static EventManager _eventManager;
 
-    private static EventManager eventManager;
-
-    public static EventManager instance
+    public static EventManager Instance
     {
         get
         {
-            if (!eventManager)
+            if (!_eventManager)
             {
-                eventManager = FindObjectOfType(typeof(EventManager)) as EventManager;
+                _eventManager = FindObjectOfType(typeof(EventManager)) as EventManager;
 
-                if (!eventManager)
+                if (!_eventManager)
                 {
-                    Debug.LogError("There can only exist one active EventManger script on a GameObject.");
+                    Debug.LogError("There can only exist one  EventManger script on a GameObject.");
                 }
                 else
                 {
-                    eventManager.Init();
+                    _eventManager.Init();
                 }
             }
-            return eventManager;
+            return _eventManager;
         }
     }
 
@@ -36,9 +34,9 @@ public class EventManager : MonoBehaviour
     /// </summary>
     void Init()
     {
-        if (eventDictionary == null)
+        if (_eventDictionary == null)
         {
-            eventDictionary = new Dictionary<string, Action<IEventParam>>();
+            _eventDictionary = new Dictionary<string, Action<IEventParam>>();
         }
     }
 
@@ -50,15 +48,15 @@ public class EventManager : MonoBehaviour
     public static void StartListening(string eventName, Action<IEventParam> listener)
     {
         Action<IEventParam> thisEvent;
-        if (instance.eventDictionary.TryGetValue(eventName, out thisEvent))
+        if (Instance._eventDictionary.TryGetValue(eventName, out thisEvent))
         {
             thisEvent += listener;
-            instance.eventDictionary[eventName] = thisEvent;
+            Instance._eventDictionary[eventName] = thisEvent;
         }
         else
         {
             thisEvent += listener;
-            instance.eventDictionary.Add(eventName, thisEvent);
+            Instance._eventDictionary.Add(eventName, thisEvent);
         }
     }
 
@@ -69,12 +67,12 @@ public class EventManager : MonoBehaviour
     /// <param name="listener">Listener.</param>
     public static void StopListening(string eventName, Action<IEventParam> listener)
     {
-        if (eventManager == null) return;
+        if (_eventManager == null) return;
         Action<IEventParam> thisEvent;
-        if ((listener != null) && instance.eventDictionary.TryGetValue(eventName, out thisEvent))
+        if ((listener != null) && Instance._eventDictionary.TryGetValue(eventName, out thisEvent))
         {
             thisEvent -= listener;
-            instance.eventDictionary[eventName] = thisEvent;
+            Instance._eventDictionary[eventName] = thisEvent;
         }
     }
 
@@ -86,7 +84,7 @@ public class EventManager : MonoBehaviour
     public static void TriggerEvent(string eventName, IEventParam eventParam)
     {
         Action<IEventParam> thisEvent = null;
-        if (instance.eventDictionary.TryGetValue(eventName, out thisEvent))
+        if (Instance._eventDictionary.TryGetValue(eventName, out thisEvent))
         {
             thisEvent.Invoke(eventParam);
         }
