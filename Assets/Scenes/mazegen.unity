@@ -779,8 +779,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 763625072}
-  - component: {fileID: 763625071}
   - component: {fileID: 763625073}
+  - component: {fileID: 763625071}
   - component: {fileID: 763625074}
   m_Layer: 0
   m_Name: Managers
@@ -1791,6 +1791,7 @@ GameObject:
   - component: {fileID: 1957511879}
   - component: {fileID: 1957511884}
   - component: {fileID: 1957511885}
+  - component: {fileID: 1957511886}
   m_Layer: 8
   m_Name: PlayerAvatar
   m_TagString: Player
@@ -1916,6 +1917,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f9782f1816e64431a6916a389cc358a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1957511886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1957511878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ff5603e3a92c4ebca2935297c72587a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: {fileID: 11400000, guid: e280eb3c493314cbcab6dfc240d05d35, type: 2}
+  ResetHealthOnStart: 1
+  StartingHP:
+    UseConstant: 1
+    ConstantValue: 100
+    Variable: {fileID: 0}
+  DeathEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1928068693}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &2022595610
 GameObject:
   m_ObjectHideFlags: 0

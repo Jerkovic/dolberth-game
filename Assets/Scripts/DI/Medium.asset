@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 86f4b68995c6c4e2c8e3725a12ffbda6, type: 3}
-  m_Name: GameSettingsInstaller
+  m_Name: Medium
   m_EditorClassIdentifier: 
   PlayerSettings:
-    Speed: 0
-    Health: 0
-    MaxHealth: 0
+    Speed: 10
+    Health: 20
+    MaxHealth: 20

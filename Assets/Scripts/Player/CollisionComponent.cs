@@ -61,18 +61,6 @@ namespace Dolberth.Player
                     Destroy(coll.gameObject);
                 }
             }
-
-            if (coll.gameObject.CompareTag("Enemy"))
-            {
-                _gameManager.GetPlayerData().TakeDamage(1f);
-                EventPlayerDamage damageEvent = new EventPlayerDamage()
-                {
-                    health = 0,
-                    maxHealth = 0
-                };
-
-                EventManager.TriggerEvent("Player.Hurt", damageEvent);
-            }
         }
     }
 }

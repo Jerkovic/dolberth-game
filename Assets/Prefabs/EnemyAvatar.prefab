@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 195577088169988030}
   - component: {fileID: 1708893616537988237}
   - component: {fileID: 1771284947388307800}
+  - component: {fileID: 8438798677106967870}
   m_Layer: 8
   m_Name: EnemyAvatar
   m_TagString: Enemy
@@ -158,3 +159,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _containerSource: 2
+--- !u!114 &8438798677106967870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1695184283211634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f16823ff6855c4954929929ae98e4c47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DamageAmount:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 81fc6ad4c7d56474aa626d05ad7feb6f, type: 2}

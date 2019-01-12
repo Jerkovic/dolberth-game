@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Easy
   m_EditorClassIdentifier: 
   PlayerSettings:
-    Speed: 0
-    Health: 0
-    MaxHealth: 0
+    Speed: 8
+    Health: 100
+    MaxHealth: 100

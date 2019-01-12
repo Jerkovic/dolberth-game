@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3619754e68294438b0e9bd21fe508e8, type: 3}
-  m_Name: PlayerStats
+  m_Script: {fileID: 11500000, guid: 2d00d41bee435454e8f34fa249eb6a19, type: 3}
+  m_Name: EnemyDamage
   m_EditorClassIdentifier: 
-  health: 79.21616
-  maxHealth: 100
+  DeveloperDescription: the value a enemy damages the player
+  Value: 5

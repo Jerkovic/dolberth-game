@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86f4b68995c6c4e2c8e3725a12ffbda6, type: 3}
-  m_Name: Expert
+  m_Script: {fileID: 11500000, guid: 2d00d41bee435454e8f34fa249eb6a19, type: 3}
+  m_Name: PlayerHP
   m_EditorClassIdentifier: 
-  PlayerSettings:
-    Speed: 15
-    Health: 5
-    MaxHealth: 5
+  DeveloperDescription: the players current health points
+  Value: -35

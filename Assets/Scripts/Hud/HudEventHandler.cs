@@ -18,14 +18,6 @@ namespace Dolberth.Hud
         private Animation _animation;
 
 
-        private APlayer.Settings _aPlayer;
-
-        [Inject]
-        private void Construct(APlayer.Settings aPlayer)
-        {
-            _aPlayer = aPlayer;
-        }
-
         /// <summary>
         /// On enable.
         /// </summary>

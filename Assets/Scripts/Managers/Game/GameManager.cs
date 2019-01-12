@@ -24,9 +24,9 @@ namespace Dolberth.Managers.GameManager
         void InitGame()
         {
            
-            playerData = ScriptableObject.CreateInstance<PlayerData>();
-            //playerData.MaxHealth = 100;
-            //playerData.Health = playerData.MaxHealth;
+            playerData = new PlayerData();
+            playerData.MaxHealth = 100;
+            playerData.Health = playerData.MaxHealth;
             maze = new Maze.Models.Maze(diameter: 21, coins: 17);
         }
 
