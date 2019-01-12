@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: EnemyDamage
   m_EditorClassIdentifier: 
   DeveloperDescription: the value a enemy damages the player
-  Value: 5
+  Value: 10

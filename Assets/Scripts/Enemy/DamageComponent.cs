@@ -7,6 +7,7 @@ using UnityEngine.Events;
 
 namespace Dolberth.Enemy
 {
+    [RequireComponent(typeof(HealthComponent))]
     public class DamageComponent : MonoBehaviour
     {
         public FloatReference DamageAmount;
@@ -36,9 +37,6 @@ namespace Dolberth.Enemy
                     EventManager.TriggerEvent("Player.Hurt", damageEvent);
                 }
             }
-
-            // old code
-
         }
     }
 }

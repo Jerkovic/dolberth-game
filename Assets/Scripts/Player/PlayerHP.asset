@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: PlayerHP
   m_EditorClassIdentifier: 
   DeveloperDescription: the players current health points
-  Value: -35
+  Value: 30
